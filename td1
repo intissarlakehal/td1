@@ -63,3 +63,221 @@ int main()
     printf("%d",sum);
     return 0;
 }
+#include <stdio.h>
+#include <stdbool.h>
+
+bool prime(int n) {
+    bool is_prime = true;
+    if (n <= 1) {
+        return false;  // Numbers <= 1 are not prime
+    }
+    for (int i = 2; i <= n / 2; i++) {  // Loop from 2 to n/2
+        if (n % i == 0) {  // Check if n is divisible by i
+            is_prime = false;
+            break;
+        }
+    }
+    return is_prime;
+}
+
+int main() {
+    int a;
+    printf("Enter a number: ");
+    scanf("%d", &a);
+    if (prime(a)) {
+        printf("%d is a prime number.\n", a);
+    } else {
+        printf("%d is not a prime number.\n", a);
+    }
+    return 0;
+}
+
+
+//exo1.3
+#include<stdio.h>
+int lcm(int n1,int n2)
+{
+int i,l;
+for(i=n1;i<=n2;i++)
+{
+if(i%n1=0 ||i%n2=0)
+{
+l=i;
+}
+}
+return l;
+}
+
+int main()
+{
+    int a,b;
+    printf("enter two numbers");
+    scanf("%d%d",&a,&b);
+    printf("%d",lcm(a,b));
+    return 0;
+}
+
+//exo1.2
+#include<stdio.h>
+int hct(int n1,int n2)
+{
+int i,h;
+for(i=n1;i<=n2;i++)
+{
+if(n1%i=0 ||n2%i=0)
+{
+h=i;
+}
+}
+return h;
+}
+
+int main()
+{
+    int a,b;
+    printf("enter two numbers");
+    scanf("%d%d",&a,&b);
+    printf("%d",hct(a,b));
+    return 0;
+}
+Exo 1 python
+def isPrime(number):
+    if number < 2:
+        return False
+    for i in range(2, number): 
+        if number % i == 0:
+            return False
+    return True
+
+user_input = input("enter a number :")
+number = int(user_input) 
+print(isPrime(number)
+#exo1.4
+def generateAllPrime(number) :
+    def isPrime(number):
+        if number < 2 :
+            return False
+        count = 0
+        for i in range(2,number):
+            if number % i == 0:
+                count+=1
+                if(count > 1):
+                    return False
+        return True
+
+
+    result = [];
+    for i in range(0,number):
+        if isPrime(i) :
+            result.append(i)
+
+    return result
+
+user_input = input("enter a number :")
+number = int(user_input) 
+print(generateAllPrime(number))
+# 2.7
+def fact(number) :
+    result = 1;
+    for i in range(number) :
+        result += result * i
+
+    return result
+
+
+user_input = input("enter a number :")
+number = int(user_input) 
+print(fact(number))
+
+. ‌, [10/19/2024 11:12 PM]
+# 2.6
+def harmonic_sum(num) :
+    if num < 1:
+        return 0
+
+    result = 0.0
+    for i in range(num):
+        result += (1/i) 
+
+    return result
+
+
+user_input = input("enter a number :")
+number = int(user_input) 
+print(harmonic_sum(number))
+# 2.4
+def squaresSum(num) :
+
+    result = 0
+    for i in range(num):
+        result += i ** 2; 
+
+    return result
+
+user_input = input("enter a number :")
+number = int(user_input) 
+print(squaresSum(number))
+Exo 07
+#include <stdio.h>
+long long mod_exp(long long base, long long exp, long long mod) {
+    long long result = 1;
+    base = base % mod;
+
+    while (exp > 0) {
+        if (exp % 2 == 1) { 
+            result = (result * base) % mod;
+        }
+        exp = exp >> 1; // Divide exp by 2
+        base = (base * base) % mod; 
+    }
+    return result;
+}
+
+
+long long compute_mod(long long A, long long B, long long P) {
+
+    long long B_mod = B % (P - 1);
+    return mod_exp(A, B_mod, P);
+}
+
+int main() {
+    long long A, B, P;
+
+
+    printf("Enter A, B, P (where P is prime): ");
+    scanf("%lld %lld %lld", &A, &B, &P);
+
+    long long result = compute_mod(A, B, P);
+    printf("Result: %lld\n", result);
+
+    return 0;
+}
+#include <stdio.h>
+
+int sum_of_divisors(int N) {
+    int sum = 0;
+    for (int i = 1;  i <= N; i++) {
+        if (N % i == 0) {
+            sum += i;
+
+            }
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int N;
+    printf("Enter a number (1 ≤ N ≤ 10^6): ");
+    scanf("%d", &N);
+
+    if (N < 1 || N > 1000000) {
+        printf("Invalid input! Please enter a number between 1 and 1,000,000.\n");
+        return 1;
+    }
+
+    int result = sum_of_divisors(N);
+    printf("Sum of divisors of %d is %d\n", N, result);
+
+    return 0;
+}
